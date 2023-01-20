@@ -9,36 +9,45 @@ import Swal from 'sweetalert2';
 export class FormComponent {
 
 
+  name!: string
+  lastNamePat!: string
+  lastNameMot!: string
   username!: string
   email!: string
   password!: string
   repeatPassword!: string
-  firstName!: string
-  lastName!: string
-  phone!: string
-  company!: string
-  
-  newusername!: string | null 
-  newemail!: string | null
-  newpassword!: string | null
-  newrepeatPassword!: string | null
-  newfirstName!: string | null
-  newlastName!: string | null
-  newphone!: string | null
-  newcompany!: string | null
+  region!: string
+  pais!: string
+  codPostal!: string
+
+  newName!: string | null
+  newLastNamePat!: string | null
+  newLastNameMot!: string | null
+  newUsername!: string | null
+  newEmail!: string | null
+  newPassword!: string | null
+  newRepeatPassword!: string | null
+  newRegion!: string | null
+  newPais!: string | null
+  newCodPostal!: string | null
+
+  cadena!: string
 
   saveUser() {
-    if (this.username != null && this.email != null && this.password != null && this.repeatPassword != null
-      && this.firstName != null && this.lastName != null && this.phone != null && this.company != null) {
+    if (this.name != null && this.lastNamePat != null && this.lastNamePat != null &&
+      this.username != null && this.email != null && this.password != null &&
+      this.repeatPassword != null && this.region != null && this.pais != null && this.codPostal != null) {
 
+      localStorage.setItem('name', this.name)
+      localStorage.setItem('lastNamePat', this.lastNamePat)
+      localStorage.setItem('lastNameMot', this.lastNameMot)
       localStorage.setItem('username', this.username)
       localStorage.setItem('email', this.email)
       localStorage.setItem('password', this.password)
       localStorage.setItem('repeatPassword', this.repeatPassword)
-      localStorage.setItem('firstName', this.firstName)
-      localStorage.setItem('lastName', this.lastName)
-      localStorage.setItem('phone', this.phone)
-      localStorage.setItem('company', this.company)
+      localStorage.setItem('region', this.region)
+      localStorage.setItem('pais', this.pais)
+      localStorage.setItem('codPostal', this.codPostal)
 
       localStorage.setItem('saved', 'true')
 
@@ -56,14 +65,20 @@ export class FormComponent {
 
       })
 
-      this.newusername = localStorage.getItem('username')
-      this.newemail = localStorage.getItem('email')
-      this.newpassword = localStorage.getItem('password')
-      this.newrepeatPassword = localStorage.getItem('repeatPassword')
-      this.newfirstName = localStorage.getItem('firstName')
-      this.newlastName= localStorage.getItem('lastName')
-      this.newphone = localStorage.getItem('phone')
-      this.newcompany = localStorage.getItem('company')
+      this.newName = localStorage.getItem('name')
+      this.newLastNamePat = localStorage.getItem('lastNamePat')
+      this.newLastNameMot = localStorage.getItem('lastNameMot')
+      this.newUsername = localStorage.getItem('username')
+      this.newEmail = localStorage.getItem('email')
+      this.newPassword = localStorage.getItem('password')
+      this.newRepeatPassword = localStorage.getItem('repeatPassword')
+      this.newRegion = localStorage.getItem('region')
+      this.newPais = localStorage.getItem('pais')
+      this.newCodPostal = localStorage.getItem('codPostal')
+
+      this.cadena = `{ ${this.newName}, ${this.newLastNamePat}, ${this.newLastNameMot}, ${this.newUsername}, 
+                       ${this.newEmail}, ${this.newPassword}, ${this.newRepeatPassword}, ${this.newRegion},
+                       ${this.newPais}, ${this.newCodPostal}}`
 
     } else {
       Swal.fire({

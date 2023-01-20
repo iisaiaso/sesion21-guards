@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          'cerrado sesion exitisamente'
+          'cerrado sesion exitosamente'
         )
         localStorage.removeItem('logeado')
         localStorage.removeItem('user')
