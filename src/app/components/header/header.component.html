@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <nav class="flex items-center justify-between flex-wrap bg-blue-900 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <div class="fill-current h-8 w-8 mr-2" width="54" height="54">
@@ -65,4 +65,43 @@
       </div>
     </div>
   </nav>
-</header>
+</header> -->
+
+<mat-toolbar color="primary">
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"
+    width="54"
+    height="54"
+    alt=""
+  />
+  <span class="example-a">My App - Material y Guard</span>
+  <a mat-button routerLink="home" class="example-a">Home</a>
+  <a mat-button routerLink="post" class="example-a">Post</a>
+  <a mat-button routerLink="formulario" class="example-a">Formulario</a>
+  <a class="example-spacer"></a>
+
+  <button
+  (click)="logout()"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with heart icon"
+    *ngIf="logeado == 'true'; else otheri"
+  >
+    <a>
+      <mat-icon>logout</mat-icon>
+    </a>
+  </button>
+
+  <ng-template #otheri>
+    <button
+      mat-icon-button
+      routerLink="login"
+      class="example-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <a>
+        <mat-icon>account_circle</mat-icon>
+      </a>
+    </button>
+  </ng-template>
+</mat-toolbar>
